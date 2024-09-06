@@ -12,7 +12,7 @@ itemAgreementStyle2.alignment = "center";
 itemAgreementStyle2.bold = "true";
 itemAgreementStyle2.italic = "true";
 itemAgreementStyle2.textwrap = "true";
-theFile = "#DateFormat(now(), 'mm-dd-YYYY')#.xlsx";
+theFile = "#DateFormat(now(), 'DD-MM-YYYY')#.xlsx";
 // Create a new spreadsheet
 spreadsheet = spreadsheetNew("Gemstones_ Pearl Quote Sheet", true);
 spreadsheetCreateSheet(spreadsheet, 'Diamond Quote Sheet');
@@ -174,13 +174,13 @@ spreadsheetSetCellValue(spreadsheet, 'L :',  13, 1);
 spreadsheetFormatCell(spreadsheet, {fontsize="12", color="black", alignment="right"},13,1);
 spreadsheetSetCellValue(spreadsheet, ' ', 13, 2);
 spreadsheetFormatCell(spreadsheet, {bottomborder="thin"}, 13, 2);
-spreadsheetSetCellValue(spreadsheet, 'W :',  13, 3);
-spreadsheetFormatCell(spreadsheet, {fontsize="12", color="black", alignment="right"},13,3);
+spreadsheetSetCellValue(spreadsheet, 'W:',  13, 3);
+spreadsheetFormatCell(spreadsheet, {fontsize="12", color="black", alignment="center"},13,3);
 spreadsheetSetColumnWidth(spreadsheet, 3, 5);
 spreadsheetSetCellValue(spreadsheet, ' ', 13, 4);
 spreadsheetFormatCell(spreadsheet, {bottomborder="thin"}, 13, 4);
 spreadsheetSetCellValue(spreadsheet, 'H :',  13, 5);
-spreadsheetFormatCell(spreadsheet, {fontsize="12", color="black", alignment="right"},13,5);
+spreadsheetFormatCell(spreadsheet, {fontsize="12", color="black", alignment="center"},13,5);
 spreadsheetSetColumnWidth(spreadsheet, 5, 5);
 spreadsheetSetCellValue(spreadsheet, ' ', 13, 6);
 spreadsheetFormatCell(spreadsheet, {bottomborder="thin"}, 13, 6);
@@ -489,17 +489,15 @@ for (col = 1; col <= 6; col++) {
 //SET empty image set in the 27th-35th row
 spreadsheetMergeCells(spreadsheet, 27, 35, 9, 14);
 spreadsheetSetCellValue(spreadsheet, '', 27, 9);
-for(col=9;col<=14;col++){
-    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',topborder='thin',rightborder='thin',leftborder='thin'}, 27, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 28, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 29, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 30, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 31, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 32, col);
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 33, col)
-    spreadsheetFormatCell(spreadsheet, {topborder='thin',rightborder='thin',leftborder='thin'}, 34, col)
-    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',topborder='thin',rightborder='thin',leftborder='thin',bgcolor='none'}, 35, col)
+spreadsheetFormatCell(spreadsheet, {bgcolor='none'}, 27, 9);
+for (col = 9; col <= 14; col++) {
+    spreadsheetFormatCell(spreadsheet, {bottomborder: 'thin', topborder: 'thin', rightborder: 'thin', leftborder: 'thin', bgcolor='none'}, 27, col);
+    for (row = 28; row <= 34; row++) {
+        spreadsheetFormatCell(spreadsheet, {topborder: 'thin', rightborder: 'thin', leftborder: 'thin', bgcolor='none'}, row, col);
+    }
+    spreadsheetFormatCell(spreadsheet, {bottomborder: 'thin', topborder: 'thin', rightborder: 'thin', leftborder: 'thin', bgcolor='none'}, 35, col);
 }
+
 //set quote data details in the 28th row
 spreadsheetSetCellValue(spreadsheet, "QUOTE DATE:", 28, 1);
 spreadsheetFormatCell(spreadsheet, {bold=true, fontsize="12", color="black", alignment="right"}, 28, 1);
@@ -527,7 +525,7 @@ for(col=2;col<=6;col++){
 //SET price at  CONTENT IN THE 31sth row
 spreadsheetSetCellValue(spreadsheet, "PRICED AT:", 31, 1);
 spreadsheetFormatCell(spreadsheet, {bold=true,rightborder='thin',alignment='right'}, 31, 1);
-spreadsheetSetCellValue(spreadsheet, 'GOLD:', 31, 2);
+spreadsheetSetCellValue(spreadsheet, 'Gold:', 31, 2);
 spreadsheetFormatCell(spreadsheet, {alignment='right',bottomborder='thin',topborder='thin',rightborder='thin'}, 31, 2);
 spreadsheetSetColumnWidth(spreadsheet, 2, 10);
 spreadsheetMergeCells(spreadsheet, 31, 31, 3, 6);
@@ -566,6 +564,275 @@ spreadsheetSetCellValue(spreadsheet, '', 34, 3);
 for(col=3;col<=6;col++){
     spreadsheetFormatCell(spreadsheet, {rightborder='thick',bottomborder='thick',leftborder='thin'}, 34, col);
 }
+//set mounting information in the 35th row
+spreadsheetMergeCells(spreadsheet, 35, 35, 1, 6);
+spreadsheetSetCellValue(spreadsheet, 'MOUNTING:', 35, 1);
+spreadsheetformatcell(spreadsheet,{alignment="left",bold=true,color="black"},35,1);
+for(col=1;col<=6;col++){
+    spreadsheetformatcell(spreadsheet,{rightborder='thick'},35,col);
+}
+//set finished dwt in 36th row
+spreadsheetMergeCells(spreadsheet, 36, 36, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Finished DWT', 36, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 36, 1);
+spreadsheetMergeCells(spreadsheet, 36, 36, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 36, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 36, col);
+}
+//set casting charge in the 37th row
+spreadsheetMergeCells(spreadsheet, 37, 37, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Casting Charge', 37, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 37, 1);
+spreadsheetMergeCells(spreadsheet, 37, 37, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 37, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 37, col);
+}
+//set gold breakdown title in the 37th row(secondSet)
+spreadsheetMergeCells(spreadsheet, 37, 37, 8, 9);
+spreadsheetSetCellValue(spreadsheet, 'Gold Breakdown', 37, 8);
+formatGoldValue=structNew();
+formatGoldValue.color='black';
+formatGoldValue.bold=true;
+formatGoldValue.alignment='center';
+formatGoldValue.fontsize='14';
+formatGoldValue.bgcolor='yellow';
+formatGoldValue.fgcolor='yellow';
+formatGoldValue.topborder='thick';
+formatGoldValue.bottomborder='thin';
+formatGoldValue.rightborder='thick';
+formatGoldValue.leftborder='thick';
+for(col=8;col<=9;col++){
+    spreadsheetFormatCell(spreadsheet, formatGoldValue, 37, col);
+}
+//set finding/chain in the 38th row
+spreadsheetMergeCells(spreadsheet, 38, 38, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Finding / Chain', 38, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 38, 1);
+spreadsheetMergeCells(spreadsheet, 38, 38, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 38, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 38, col);
+}
+//set gram informaion in the 38th row(secondset)
+spreadsheetSetCellValue(spreadsheet, 'Gram:', 38, 8);
+spreadsheetFormatCell(spreadsheet, {alignment='left',bgcolor='yellow',fgcolor='yellow',fontsize='13',leftborder='thick',rightborder='thin',bottomborder='thin'}, 38, 8);
+spreadsheetSetCellValue(spreadsheet, '', 38, 9);
+spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 38, 9);
+//set pcs on Casting in the 39th row
+spreadsheetMergeCells(spreadsheet, 39, 39, 1, 2);
+spreadsheetSetCellValue(spreadsheet, '## Pcs on Casting', 39, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 39, 1);
+spreadsheetMergeCells(spreadsheet, 39, 39, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 39, 4);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 39, 1);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 39, col);
+}
+//set labour informaion in the 39th row(secondset)
+spreadsheetSetCellValue(spreadsheet, 'Labour:', 39, 8);
+spreadsheetFormatCell(spreadsheet, {alignment='left',bgcolor='yellow',fgcolor='yellow',fontsize='13',leftborder='thick',rightborder='thin',bottomborder='thin'}, 39, 8);
+spreadsheetSetCellValue(spreadsheet, '', 39, 9);
+spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 39, 9);
+//set head size/shape on Casting in the 40th row
+spreadsheetMergeCells(spreadsheet, 40, 40, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Head Size / Shape', 40, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 40, 1);
+spreadsheetMergeCells(spreadsheet, 40, 40, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 40, 4);
+spreadsheetFormatCell(spreadsheet, {alignment='right'}, 40, 1);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 40, col);
+}
+//set $ per gram informaion in the 40th row(secondset)
+spreadsheetSetCellValue(spreadsheet, '$ Per Gram', 40, 8);
+spreadsheetFormatCell(spreadsheet, {alignment='left',bgcolor='yellow',fgcolor='yellow',fontsize='13',leftborder='thick',rightborder='thin',bottomborder='thick'}, 40, 8);
+spreadsheetSetCellValue(spreadsheet, '$0.00', 40, 9);
+spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick',alignment='center',bottomborder='thick'}, 40, 9);
+//set total mounting in the 41st row
+spreadsheetMergeCells(spreadsheet, 41, 41, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Total Mounting', 41, 1);
+for(col=1;col<=2;col++){
+    spreadsheetformatcell(spreadsheet,{alignment="right",bold=true,color="black"},41,col);
+}
+//set value $0.00 in the 41st row
+spreadsheetMergeCells(spreadsheet, 41, 41, 4, 6);
+spreadsheetSetCellValue(spreadsheet, "$0.00", 41, 4);
+formatValue=structNew();
+formatValue.alignment = "center";
+formatValue.fontsize = "12";
+formatValue.dataformat = "$0.00";
+formatValue.bold="true";
+formatValue.color="black";
+formatValue.rightborder="thick";
+for(col=4;col<=6;col++){
+    spreadsheetFormatCellRange(spreadsheet,formatValue, 41, 4, 41, 6);
+}
+//set empty bottom border line in the 42nd row
+spreadsheetMergeCells(spreadsheet, 42, 42, 1, 6)
+spreadsheetSetCellValue(spreadsheet, '', 42, 1);
+for(col=1;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thick',rightborder='thick'}, 42, col);
+}
+//set labor cost details in the 43rd row(1st set)
+spreadsheetMergeCells(spreadsheet, 43, 43, 1, 6);
+spreadsheetSetCellValue(spreadsheet, 'LABOR COSTS :', 43, 1);
+for(col=1;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='left',fontsize='12',bold='true',color='black',rightborder='thick'}, 43, col)
+}
+//set labor cost details in the 43rd row(2nd set)
+spreadsheetMergeCells(spreadsheet, 43, 43, 8, 14);
+spreadsheetSetCellValue(spreadsheet, 'LABOR COST DETAILS ', 43, 8);
+formatLaborValue=structNew();
+formatLaborValue.alignment='center';
+formatLaborValue.bgcolor='yellow';
+formatLaborValue.fgcolor='yellow';
+formatLaborValue.topborder='thick';
+formatLaborValue.bottomborder='thick';
+formatLaborValue.rightborder='thick';
+formatLaborValue.leftborder='thick';
+formatLaborValue.fontsize='13';
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, formatLaborValue, 43, col);
+}
+//set cost to assemble value for the 44th row(cost to assemble)
+spreadsheetMergeCells(spreadsheet, 44, 44, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Cost To Assemble', 44, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 44, 1);
+spreadsheetMergeCells(spreadsheet, 44, 44, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 44, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 44, col);
+}
+//set empty cell for the 44th row(second set)
+spreadsheetMergeCells(spreadsheet, 44, 44, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 44, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 44, col);
+}
+//set what needs to be assembled value for the 45th row
+spreadsheetMergeCells(spreadsheet, 45, 45, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'What Needs to be Assembled', 45, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 45, 1);
+spreadsheetMergeCells(spreadsheet, 45, 45, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 45, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 45, col);
+}
+//set empty cell for the 45th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 45, 45, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 45, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 45, col);
+}
+//set polish and finish value for the 46th row
+spreadsheetMergeCells(spreadsheet, 46, 46, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Polish & Finish', 46, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 46, 1);
+spreadsheetMergeCells(spreadsheet, 46, 46, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 46, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 46, col);
+}
+//set empty cell for the 46th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 46, 46, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 46, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 46, col);
+}
+//set rhodium value for the 47th row
+spreadsheetMergeCells(spreadsheet, 47, 47, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Rhodium(If required)', 47, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 47, 1);
+spreadsheetMergeCells(spreadsheet, 47, 47, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 47, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 47, col);
+}
+//set empty cell for the 47th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 47, 47, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 47, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 47, col);
+}
+//set misc,texturing value for the 48th row
+spreadsheetMergeCells(spreadsheet, 48, 48, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Misc(Texturing,Etc)', 48, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 48, 1);
+spreadsheetMergeCells(spreadsheet, 48, 48, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 48, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 48, col);
+}
+//set empty cell for the 48th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 48, 48, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 48, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 48, col);
+}
+//set Set Center value for the 49th row
+spreadsheetMergeCells(spreadsheet, 49, 49, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Set Center', 49, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 49, 1);
+spreadsheetMergeCells(spreadsheet, 49, 49, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 49, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 49, col);
+}
+//set empty cell for the 49th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 49, 49, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 49, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',leftborder='thick',rightborder='thick'}, 49, col);
+}
+//set Set Center value for the 50th row
+spreadsheetMergeCells(spreadsheet, 50, 50, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Set Melee', 50, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 50, 1);
+spreadsheetMergeCells(spreadsheet, 50, 50, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 50, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 50, col);
+}
+//set empty cell for the 50th row(2nd set)
+spreadsheetMergeCells(spreadsheet, 50, 50, 8, 14);
+spreadsheetSetCellValue(spreadsheet, '', 50, 8);
+for(col=8;col<=14;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thick',leftborder='thick',rightborder='thick'}, 50, col);
+}
+//set igi gia value for the 51st row
+spreadsheetMergeCells(spreadsheet, 51, 51, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'IGI / GIA', 51, 1);
+spreadsheetFormatCell(spreadsheet, {alignment: 'right'}, 51, 1);
+spreadsheetMergeCells(spreadsheet, 51, 51, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 51, 4);
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet, {bottomborder='thin',rightborder='thick'}, 51, col);
+}
+//SET total labour information in the 52nd row
+spreadsheetMergeCells(spreadsheet, 52, 52, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Total Labour', 52, 1);
+spreadsheetFormatCell(spreadsheet, {alignment='right',color='black',bold=true}, 52, 1);
+spreadsheetMergeCells(spreadsheet, 52, 52, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '$0.00', 52, 4);
+formatDollarValue=structNew();
+formatDollarValue.dataFormat='$0.00';
+formatDollarValue.alignment='center';
+formatDollarValue.color='black';
+formatDollarValue.bold=true;
+for(col=4;col<=6;col++){
+    spreadsheetFormatCell(spreadsheet,formatDollarValue , 52, col);
+}
+//set empty values in the 53rd row(1st set)
+spreadsheetMergeCells(spreadsheet, 53, 53, 1, 2);
+spreadsheetSetCellValue(spreadsheet, '', 53, 1);
+spreadsheetFormatCell(spreadsheet, {}, 53, 1);
+//set empty values in the 53rd row(2nd set)
+spreadsheetMergeCells(spreadsheet, 53, 53, 4, 6);
+spreadsheetSetCellValue(spreadsheet, '', 53, 4);
+spreadsheetFormatCell(spreadsheet, {}, 53, 4);
+
 
 
 // Set the content type and output the spreadsheet
