@@ -1076,9 +1076,141 @@ spreadsheetMergeCells(spreadsheet, 77, 77, 10, 16);
 for(col=10;col<=16;col++){
     spreadsheetFormatCell(spreadsheet, {bottomborder='thin'}, 77, col);
 }
-
-
-
+//set contents in the 78th row
+column=1;row=78;
+spreadsheetSetCellValue(spreadsheet, 'Vendor Allowance %:', row, column+1);
+spreadsheetFormatCellRange(spreadsheet, {alignment='right'}, row, column, row, column+1);
+spreadsheetMergeCells(spreadsheet, 78, 78, 4, 5);
+spreadsheetSetCellValue(spreadsheet, '2%', 78, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin'}, 78, col);
+}
+//set contents in the 79th row
+column=1;row=79;
+spreadsheetSetCellValue(spreadsheet, 'Vendor Allowance $:', row, column+1);
+spreadsheetFormatCellRange(spreadsheet, {alignment='right'}, row, column, row, column+1);
+spreadsheetMergeCells(spreadsheet, row, row, column+3, column+4);
+spreadsheetSetCellValue(spreadsheet, '$0.00', row, column+3);
+for(col=column+3;col<=column+4;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin'}, row, col);
+}
+//set contents in the 80th row
+spreadsheetMergeCells(spreadsheet, 80, 80, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Marketing Allowance %:', 80, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 80, 1);
+}
+spreadsheetMergeCells(spreadsheet, 80, 80, 4, 5);
+spreadsheetSetCellValue(spreadsheet, '0.50%', 80, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin'}, 80, col);
+}
+//set contents in the 81sth row
+spreadsheetMergeCells(spreadsheet, 81, 81, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Marketing Allowance $:', 81, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 81, 1);
+}
+spreadsheetMergeCells(spreadsheet, 81, 81, 4, 5);
+spreadsheetSetCellValue(spreadsheet, '$0.00', 81, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin'}, 81, col);
+}
+//set contents in the 82nd row
+column=1;row=82;
+spreadsheetSetCellValue(spreadsheet, 'Spoils Allowance %:', row, column+1);
+spreadsheetFormatCellRange(spreadsheet, {alignment='right'}, row, column, row, column+1);
+//set contents in the 83rd row
+spreadsheetMergeCells(spreadsheet, 83, 83, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Sub Total:', 83, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 83, col);
+}
+spreadsheetMergeCells(spreadsheet, 83, 83, 4, 5);
+spreadsheetSetCellValue(spreadsheet, '$0.00', 83, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin',topborder='thin',rightborder='thin',leftborder='thin',fgcolor='grey_40_percent'}, 83, col);
+}
+//set contents in the 84th row
+spreadsheetMergeCells(spreadsheet, 84, 84, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Total DFI %(No Spoils):', 84, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 84, col);
+}
+spreadsheetMergeCells(spreadsheet, 84, 84, 4, 5);
+spreadsheetSetCellValue(spreadsheet, 'N/A', 84, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin',topborder='thin',rightborder='thin',leftborder='thin',fgcolor='gold'}, 84, col);
+}
+//set contents in the 85th row
+spreadsheetMergeCells(spreadsheet, 85, 85, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Total NET Cost:', 85, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 85, col);
+}
+spreadsheetMergeCells(spreadsheet, 85, 85, 4, 5);
+spreadsheetSetCellValue(spreadsheet, '$0.00', 85, 4);
+for(col=4;col<=5;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bottomborder='thin',topborder='thin',rightborder='thin',leftborder='thin',fgcolor='pale_blue'}, 85, col);
+}
+//set contents in the 87th row
+column=1;row=87;
+spreadsheetSetCellValue(spreadsheet, 'Socialized Casting:', row, column+1);
+spreadsheetFormatCellRange(spreadsheet, {alignment='right',bold=true,underline='true'}, row, column, row, column+1);
+spreadsheetMergeCells(spreadsheet, row, row, column+3, column+4);
+spreadsheetFormatCellRange(spreadsheet, {bottomborder='thin'}, row, column+3, row, column+4);
+//set contents in the 88-89row
+startRow = 88;
+startColumn = 1;
+for(row = startRow; row <= startRow + 1; row++) {
+    spreadsheetSetCellValue(spreadsheet, 'Finished DWT XXX:', row, startColumn + 1);
+    spreadsheetFormatCellRange(spreadsheet, {alignment: 'right'}, row, startColumn, row, startColumn + 1);
+}
+//set contents in the 90,91strow
+spreadsheetMergeCells(spreadsheet, 90, 90, 1, 2);
+spreadsheetMergeCells(spreadsheet, 91, 91, 1, 2);
+for(row=90;row<=91;row++){
+    for(col=1;col<=2;col++){
+            spreadsheetSetCellValue(spreadsheet, 'Finished DWT XXX:', row,col);
+            spreadsheetFormatCell(spreadsheet, {alignment='right'}, row, col);
+    }
+}
+//set border line in the 88-92 row
+for(row=88;row<=92;row++){
+    for(col=4;col<=5;col++){
+        spreadsheetformatcell(spreadsheet,{bottomborder='thin'},row,col);
+    }
+}
+//set content in the 92nd row
+spreadsheetMergeCells(spreadsheet, 92, 92, 1, 2);
+spreadsheetSetCellValue(spreadsheet, 'Socialized Cost All Sizes:', 92, 1);
+for(col=1;col<=2;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 92, col);
+}
+//set values in the 81st row (2nd set)
+spreadsheetMergeCells(spreadsheet, 81, 81, 10, 16);
+spreadsheetSetCellValue(spreadsheet, 'SIZING', 81, 10);;
+for(col=10;col<=16;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='center',bold=true, topborder='thin',bottomborder='thin',leftborder='thin',rightborder='thin', fgcolor='light_yellow'}, 81, col);
+}
+//set values in the 82nd row
+spreadsheetSetCellValue(spreadsheet, 'If a Ring,Is It Sizeable?', 82, 12);
+spreadsheetFormatCell(spreadsheet, {}, 82, 12);
+//set value in the 83rd row
+spreadsheetMergeCells(spreadsheet, 83, 83, 10, 12);
+spreadsheetSetCellValue(spreadsheet, 'If Yes,How Much Can Ring Be Sized', 83,10);
+for(col=10;col<=12;col++){
+    spreadsheetFormatCell(spreadsheet, {alignment='right'}, 83, col);
+} 
+//set values in the 84th row
+spreadsheetSetCellValue(spreadsheet, 'Finished Cost 5:', 84, 12);
+spreadsheetFormatCell(spreadsheet, {}, 84, 12);
+//set border lines in the 83-87th row
+for(row=83;row<=87;row++){
+    for(col=13;col<=15;col++){
+        spreadsheetformatcell(spreadsheet,{bottomborder='thin'},row,col);
+    }
+}
 //Set the content type and output the spreadsheet
 </cfscript>
 
